@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Atlas Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <h1>Atlas Game</h1>
+    
+    <div id="playerNameDisplay" class="player-name-display hidden">
+      <span id="currentPlayerName">-</span>
+    </div>
+    
+    <div id="messageContainer" class="message-container"></div>
+    
+    <div class="game-container">
+      <div class="main-content">
+        <div id="lobby" class="card">
+          <input id="roomCode" class="input" placeholder="Room Code" />
+          <input id="playerName" class="input" placeholder="Your Name" />
+          <div class="buttons">
+            <button class="btn" onclick="createRoom()">Create Room</button>
+            <button class="btn" onclick="joinRoom()">Join Room</button>
+          </div>
+        </div>
+
+        <div id="game" class="card hidden">
+          <p id="currentWord" class="highlight">Current word: -</p>
+          <div id="flagContainer" class="flag-container" style="display: none;"></div>
+          <div id="startWordInput" class="input-group" style="display: none;">
+            <input id="firstWord" class="input" placeholder="Start Word" />
+            <button class="btn" onclick="startGame()">Start Game</button>
+          </div>
+          <div id="turnInput" class="input-group" style="display: none;">
+            <input id="newWord" class="input" placeholder="Your Word" />
+            <button class="btn" onclick="sendWord()">Submit</button>
+            <div id="errorMessage" class="error-message"></div>
+          </div>
+          <p id="status" class="status-text"></p>
+          
+          <div id="detailsPanel" class="details-panel hidden">
+            <h3>Details</h3>
+            <div id="detailsContent" class="details-content">
+              <!-- Details will be populated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scoreboard-container hidden">
+        <div class="scoreboard">
+          <h2>Scoreboard</h2>
+          <div id="players" class="players-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="countries.js"></script>
+  <script src="cities.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

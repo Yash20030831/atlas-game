@@ -1,0 +1,19 @@
+{
+  "name": "word-antakshari",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dictionary-en": "^4.0.0",
+    "express": "^5.1.0",
+    "nspell": "^2.1.5",
+    "socket.io": "^4.8.1"
+  }
+}
